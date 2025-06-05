@@ -31,10 +31,10 @@ With AI pair programming tools like Claude, Cursor, and GitHub Copilot, develope
 
 ```bash
 # One-line ghost buster
-curl -sSL https://raw.githubusercontent.com/yourusername/ghostcleaner/main/scripts/install-one-liner.sh | bash
+curl -sSL https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/scripts/install-one-liner.sh | bash
 
 # Or with wget
-wget -qO- https://raw.githubusercontent.com/yourusername/ghostcleaner/main/scripts/install-one-liner.sh | bash
+wget -qO- https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/scripts/install-one-liner.sh | bash
 ```
 
 ### Package Managers
@@ -54,7 +54,7 @@ pip install ghostcleaner
 
 ```bash
 # Download the ghost buster
-curl -sSL https://raw.githubusercontent.com/yourusername/ghostcleaner/main/ghostcleaner.sh -o ghostcleaner
+curl -sSL https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/ghostcleaner.sh -o ghostcleaner
 
 # Give it power
 chmod +x ghostcleaner
@@ -66,7 +66,7 @@ sudo mv ghostcleaner /usr/local/bin/
 ### From Source
 
 ```bash
-git clone https://github.com/yourusername/ghostcleaner.git
+git clone https://github.com/daiokawa/ghostcleaner.git
 cd ghostcleaner
 ./install.sh
 ```

@@ -7,7 +7,7 @@ Your Ghostcleaner repository is ready! Here's how to push it to GitHub:
 Go to: https://github.com/new
 
 - **Repository name**: `ghostcleaner`
-- **Description**: `Smart cleanup tool for the AI-assisted development era - removes old versions while keeping the latest`
+- **Description**: `👻 Bust the ghost files haunting your codebase after AI-powered coding sessions`
 - **Public**: ✓
 - **Do NOT** initialize with README, .gitignore, or license (we already have them)
 
@@ -36,14 +36,14 @@ git push origin v1.0.0
 
 ## 4. Update README URLs
 
-Replace `yourusername` with your actual GitHub username in:
+Replace `daiokawa` with your actual GitHub username in:
 - README.md
 - README.ja.md
 - All installation scripts
 
 ```bash
 # Quick replace (macOS)
-find . -type f -name "*.md" -o -name "*.sh" -o -name "*.rb" | xargs sed -i '' 's/yourusername/YOUR_ACTUAL_USERNAME/g'
+find . -type f -name "*.md" -o -name "*.sh" -o -name "*.rb" | xargs sed -i '' 's/daiokawa/YOUR_ACTUAL_USERNAME/g'
 
 # Commit the changes
 git add .
@@ -54,6 +54,8 @@ git push
 ## 5. Set Repository Topics
 
 On your GitHub repository page, click the gear icon next to "About" and add topics:
+- `ghost`
+- `ghostbuster`
 - `ai`
 - `cleanup`
 - `disk-space`
@@ -61,6 +63,7 @@ On your GitHub repository page, click the gear icon next to "About" and add topi
 - `developer-tools`
 - `node-modules`
 - `cache-cleaner`
+- `ai-tools`
 
 ## 6. Share with the Community!
 
@@ -71,20 +74,22 @@ On your GitHub repository page, click the gear icon next to "About" and add topi
 
 ### Twitter/X
 ```
-🧹 Just released Ghostcleaner - a tool born from the AI coding era!
+👻 Who you gonna call? GHOSTCLEANER!
 
-When AI helps you code 10x faster, your disk fills up 10x faster too 😅
+Just released a tool to bust the ghost files haunting your codebase after AI coding sessions.
 
-✅ Keeps latest versions
-✅ Git safety checks  
-✅ Multi-language support
+When you code at supernatural speeds with AI, ghost files multiply...
+
+✨ Detects ghost versions
+🔒 Git safety checks
+👻 Keeps only the living code
 
 https://github.com/YOUR_USERNAME/ghostcleaner
 ```
 
 ### Product Hunt
 Consider launching on Product Hunt with the tagline:
-"Smart cleanup for the AI development era"
+"Who you gonna call? Ghostcleaner! 👻"
 
 ## 7. Optional: Homebrew Tap
 

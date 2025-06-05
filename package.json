@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/ghostcleaner.git"
+    "url": "git+https://github.com/daiokawa/ghostcleaner.git"
   },
   "keywords": [
     "ghost",
@@ -28,9 +28,9 @@
   "author": "Ghostcleaner Contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/ghostcleaner/issues"
+    "url": "https://github.com/daiokawa/ghostcleaner/issues"
   },
-  "homepage": "https://github.com/yourusername/ghostcleaner#readme",
+  "homepage": "https://github.com/daiokawa/ghostcleaner#readme",
   "engines": {
     "node": ">=14.0.0"
   },

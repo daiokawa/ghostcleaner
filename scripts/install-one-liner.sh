@@ -1,6 +1,6 @@
 #!/bin/sh
 # One-liner installation script for Ghostcleaner
-# Usage: curl -sSL https://raw.githubusercontent.com/yourusername/ghostcleaner/main/scripts/install-one-liner.sh | bash
+# Usage: curl -sSL https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/scripts/install-one-liner.sh | bash
 
 set -e
 
@@ -12,7 +12,7 @@ ARCH="$(uname -m)"
 
 # Install location
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
-SCRIPT_URL="https://raw.githubusercontent.com/yourusername/ghostcleaner/main/ghostcleaner.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/ghostcleaner.sh"
 
 # Download and install
 if command -v curl >/dev/null 2>&1; then

@@ -14,7 +14,7 @@ Thank you for your interest in contributing to Ghostcleaner! This tool addresses
 
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/ghostcleaner.git
+git clone https://github.com/daiokawa/ghostcleaner.git
 cd ghostcleaner
 
 # Make scripts executable

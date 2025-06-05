@@ -1,7 +1,7 @@
 class Ghostcleaner < Formula
   desc "Bust the ghost files haunting your codebase after AI-powered coding sessions"
-  homepage "https://github.com/yourusername/ghostcleaner"
-  url "https://github.com/yourusername/ghostcleaner/archive/v1.0.0.tar.gz"
+  homepage "https://github.com/daiokawa/ghostcleaner"
+  url "https://github.com/daiokawa/ghostcleaner/archive/v1.0.0.tar.gz"
   sha256 "PLACEHOLDER_SHA256"
   license "MIT"
 

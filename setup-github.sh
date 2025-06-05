@@ -50,7 +50,7 @@ cat << 'EOF'
    git push origin v1.0.0
 
 5. Update README.md URLs:
-   Replace "yourusername" with your actual GitHub username
+   Replace "daiokawa" with your actual GitHub username
 
 6. Optional: Set up GitHub Pages for documentation
 

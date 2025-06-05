@@ -12,7 +12,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # Configuration
-REPO_URL="https://github.com/yourusername/ghostcleaner"
+REPO_URL="https://github.com/daiokawa/ghostcleaner"
 INSTALL_DIR="/usr/local/bin"
 SCRIPT_NAME="ghostcleaner"
 
@@ -89,7 +89,7 @@ install_from_source() {
 install_direct() {
     echo -e "${GREEN}Direct installation...${NC}"
     
-    local script_url="https://raw.githubusercontent.com/yourusername/ghostcleaner/main/ghostcleaner.sh"
+    local script_url="https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/ghostcleaner.sh"
     
     # Download script
     if command -v curl &> /dev/null; then
@@ -126,7 +126,7 @@ post_install() {
     if [ ! -f "$HOME/.cleanerrc" ]; then
         echo "Downloading example configuration..."
         if command -v curl &> /dev/null; then
-            curl -sSL "https://raw.githubusercontent.com/yourusername/ghostcleaner/main/example.cleanerrc" -o "$config_dir/example.cleanerrc"
+            curl -sSL "https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/example.cleanerrc" -o "$config_dir/example.cleanerrc"
         fi
         echo -e "${YELLOW}Example config saved to: $config_dir/example.cleanerrc${NC}"
         echo "Copy to ~/.cleanerrc and customize as needed."

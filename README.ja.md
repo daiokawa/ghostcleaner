@@ -29,10 +29,10 @@ Claude、GitHub Copilot、CursorなどのAIペアプログラミングツール�
 
 ```bash
 # ワンラインインストール
-curl -sSL https://raw.githubusercontent.com/yourusername/ghostcleaner/main/scripts/install-one-liner.sh | bash
+curl -sSL https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/scripts/install-one-liner.sh | bash
 
 # またはwgetで
-wget -qO- https://raw.githubusercontent.com/yourusername/ghostcleaner/main/scripts/install-one-liner.sh | bash
+wget -qO- https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/scripts/install-one-liner.sh | bash
 ```
 
 ### パッケージマネージャー
@@ -52,7 +52,7 @@ pip install ghostcleaner
 
 ```bash
 # スクリプトをダウンロード
-curl -sSL https://raw.githubusercontent.com/yourusername/ghostcleaner/main/ghostcleaner.sh -o ghostcleaner
+curl -sSL https://raw.githubusercontent.com/daiokawa/ghostcleaner/main/ghostcleaner.sh -o ghostcleaner
 
 # 実行可能にする
 chmod +x ghostcleaner
@@ -64,7 +64,7 @@ sudo mv ghostcleaner /usr/local/bin/
 ### ソースからインストール
 
 ```bash
-git clone https://github.com/yourusername/ghostcleaner.git
+git clone https://github.com/daiokawa/ghostcleaner.git
 cd ghostcleaner
 ./install.sh
 ```

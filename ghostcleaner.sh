@@ -135,7 +135,7 @@ Examples:
   $(basename $0) --aggressive        # Full ghost busting mode
   $(basename $0) -c my.config        # Use custom config
 
-More info: https://github.com/yourusername/ghostcleaner
+More info: https://github.com/daiokawa/ghostcleaner
 EOF
             exit 0
             ;;
