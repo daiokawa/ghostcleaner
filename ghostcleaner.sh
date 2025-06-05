@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Ghostcleaner - Bust the ghost files haunting your codebase
-# Version: 1.1.0
+# Version: 1.2.0
 # Usage: ghostcleaner [--dry-run] [--aggressive] [--config FILE]
 
 # Default settings
-VERSION="1.1.0"
+VERSION="1.2.0"
 DRY_RUN=false
 AGGRESSIVE=false
 CONFIG_FILE="$HOME/.ghostcleanerrc"

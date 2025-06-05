@@ -14,6 +14,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cloud storage integration
 - Undo functionality
 
+## [1.2.0] - 2024-12-19
+
+### Added
+- 🔄 **Automatic ghost detection** with cron support
+- 📱 macOS notifications for found ghosts
+- 🛡️ Safe notification-only mode (default)
+- 📝 Automated logging system
+- Setup script for easy scheduling configuration
+
+### Security
+- Default to notification mode - never auto-delete
+- Three safety levels: notify, clean, aggressive
+- Weekly schedule recommended for balance
+
+### Developer Notes
+- "Should I run this automatically?" Yes, but notification mode only!
+- Weekly notifications help you stay aware of disk usage
+
 ## [1.1.0] - 2024-12-19
 
 ### Added

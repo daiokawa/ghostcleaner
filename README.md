@@ -87,6 +87,19 @@ ghostcleaner --aggressive
 ghostcleaner --config ~/.ghostcleanerrc
 ```
 
+### NEW in v1.2.0: Automatic Ghost Detection 🔄
+
+Set up weekly ghost hunting (safe notification mode):
+```bash
+./scripts/setup-cron.sh
+```
+
+This will:
+- 👀 Check for ghosts weekly
+- 📱 Send macOS notifications when ghosts are found
+- 🛡️ Never delete anything automatically (notification only)
+- 📝 Keep logs of all findings
+
 ## What Gets Busted? 🎯
 
 ### Safe Mode (Default)
