@@ -1,0 +1,43 @@
+{
+  "name": "ghostcleaner",
+  "version": "1.0.0",
+  "description": "Bust the ghost files haunting your codebase after AI-powered coding sessions",
+  "main": "index.js",
+  "bin": {
+    "ghostcleaner": "./bin/ghostcleaner"
+  },
+  "scripts": {
+    "test": "bash test/test-suite.sh",
+    "install": "node scripts/postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/ghostcleaner.git"
+  },
+  "keywords": [
+    "ghost",
+    "cleanup",
+    "ai",
+    "development",
+    "disk-space",
+    "node_modules",
+    "cache",
+    "cli",
+    "ghostbuster"
+  ],
+  "author": "Ghostcleaner Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/ghostcleaner/issues"
+  },
+  "homepage": "https://github.com/yourusername/ghostcleaner#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "preferGlobal": true
+}

@@ -1,0 +1,74 @@
+# AI Dev Cleaner Configuration Example
+# Copy this to ~/.cleanerrc and customize
+
+# Directories to scan for cleanup
+scan_dirs:
+  - ~/Desktop
+  - ~/Downloads
+  - ~/Documents
+  - ~/projects
+  - ~/workspace
+
+# Patterns to always ignore (glob patterns)
+ignore:
+  - "*.important"
+  - "**/archive/**"
+  - "**/.git/**"
+  - "**/production/**"
+  - "**/backup/**"
+
+# Age thresholds in days
+thresholds:
+  node_modules: 90      # Node dependencies
+  python_venv: 90       # Python virtual environments
+  build_artifacts: 60   # Build outputs
+  cache_files: 30       # Various caches
+
+# Additional build directory names to clean
+build_dirs:
+  # JavaScript/TypeScript
+  - dist
+  - build
+  - out
+  - .next
+  - .nuxt
+  - .parcel-cache
+  - .turbo
+  
+  # Python
+  - __pycache__
+  - .pytest_cache
+  - .mypy_cache
+  - htmlcov
+  - .coverage
+  
+  # Rust
+  - target
+  
+  # Go
+  - bin
+  
+  # General
+  - tmp
+  - temp
+  - logs
+
+# Version patterns to detect
+version_patterns:
+  - "*-v[0-9]*"           # project-v1, project-v2
+  - "*-[0-9]{4}-[0-9]{2}-[0-9]{2}*"  # project-2024-06-05
+  - "*-backup*"           # project-backup
+  - "*-old*"              # project-old
+  - "*-copy*"             # project-copy
+  - "*.bak"               # project.bak
+
+# Safety settings
+safety:
+  # Require git status to be clean before removing project
+  require_git_clean: true
+  
+  # Minimum age (days) before considering project for removal
+  min_project_age: 30
+  
+  # Always keep at least N versions of a project
+  keep_versions: 1

@@ -1,0 +1,14 @@
+# Test outputs
+test-output/
+*.log
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak

@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+const { spawn } = require('child_process');
+const path = require('path');
+const os = require('os');
+
+// Determine the shell script path
+const scriptPath = path.join(__dirname, '..', 'ai-dev-cleaner.sh');
+
+// Check if we're on Windows
+if (os.platform() === 'win32') {
+  // On Windows, try to use WSL or Git Bash
+  const shells = [
+    { cmd: 'wsl', args: ['bash', scriptPath, ...process.argv.slice(2)] },
+    { cmd: 'bash', args: [scriptPath, ...process.argv.slice(2)] },
+    { cmd: 'sh', args: [scriptPath, ...process.argv.slice(2)] }
+  ];
+  
+  let executed = false;
+  
+  for (const shell of shells) {
+    try {
+      const child = spawn(shell.cmd, shell.args, { stdio: 'inherit' });
+      
+      child.on('error', (err) => {
+        if (!executed && shell === shells[shells.length - 1]) {
+          console.error('Error: Bash shell not found. Please install WSL or Git Bash.');
+          process.exit(1);
+        }
+      });
+      
+      child.on('exit', (code) => {
+        process.exit(code);
+      });
+      
+      executed = true;
+      break;
+    } catch (err) {
+      continue;
+    }
+  }
+  
+  if (!executed) {
+    console.error('Error: No compatible shell found on Windows.');
+    console.error('Please install Windows Subsystem for Linux (WSL) or Git Bash.');
+    process.exit(1);
+  }
+} else {
+  // On Unix-like systems, run directly
+  const child = spawn('bash', [scriptPath, ...process.argv.slice(2)], {
+    stdio: 'inherit'
+  });
+  
+  child.on('error', (err) => {
+    console.error('Error executing script:', err.message);
+    process.exit(1);
+  });
+  
+  child.on('exit', (code) => {
+    process.exit(code);
+  });
+}
