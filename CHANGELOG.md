@@ -9,12 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned
 - Full internationalization support
-- Windows native support
+- Windows native support  
 - Configuration file support
 - Cloud storage integration
 - Undo functionality
 
-## [1.0.0] - 2024-06-05
+## [1.1.0] - 2024-12-19
+
+### Added
+- 🍎 **Xcode support** - The biggest ghosts revealed!
+  - iOS Simulator devices (often 5GB+ of ghosts)
+  - DerivedData (build caches)
+  - Old Archives (60+ days)
+- 📱 Clear messaging that simulators are 100% safe to delete
+- 💡 Helpful hints about recreating simulators when needed
+
+### Changed
+- Section numbering updated to accommodate Xcode features
+- More reassuring messages for nervous users
+
+### Fun Fact
+- One user found 5.7GB of simulator ghosts! That's a lot of iPhone models nobody needs
+
+## [1.0.0] - 2024-12-19
 
 ### Added
 - Initial release 🎉

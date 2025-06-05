@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Ghostcleaner - Bust the ghost files haunting your codebase
-# Version: 1.0.0
+# Version: 1.1.0
 # Usage: ghostcleaner [--dry-run] [--aggressive] [--config FILE]
 
 # Default settings
-VERSION="1.0.0"
+VERSION="1.1.0"
 DRY_RUN=false
 AGGRESSIVE=false
 CONFIG_FILE="$HOME/.ghostcleanerrc"
@@ -384,8 +384,61 @@ if [ "$AGGRESSIVE" = true ]; then
     clean_versioned_projects "$HOME"
 fi
 
-# 4. 空のプロジェクトディレクトリ
-echo -e "\n${GREEN}4. 空のプロジェクトディレクトリ${NC}"
+# 4. Xcode関連のゴーストファイル
+if [ -d "$HOME/Library/Developer/Xcode" ] || [ -d "$HOME/Library/Developer/CoreSimulator" ]; then
+    echo -e "\n${GREEN}4. Xcode開発の亡霊${NC}"
+    
+    # DerivedData (ビルドキャッシュ)
+    if [ -d "$HOME/Library/Developer/Xcode/DerivedData" ]; then
+        SIZE=$(du -sk "$HOME/Library/Developer/Xcode/DerivedData" 2>/dev/null | cut -f1)
+        SIZE=$((SIZE * 1024))
+        if [ $SIZE -gt 0 ]; then
+            remove_item "$HOME/Library/Developer/Xcode/DerivedData" $SIZE "Xcode DerivedData (ビルドキャッシュ)"
+            TOTAL_FREED=$((TOTAL_FREED + SIZE))
+        fi
+    fi
+    
+    # iOS Simulator devices
+    if [ -d "$HOME/Library/Developer/CoreSimulator/Devices" ] && command -v xcrun >/dev/null 2>&1; then
+        # 各シミュレータデバイスのサイズを計算
+        SIMULATOR_SIZE=0
+        while IFS= read -r device_dir; do
+            if [ -d "$device_dir" ]; then
+                DEVICE_SIZE=$(du -sk "$device_dir" 2>/dev/null | cut -f1)
+                SIMULATOR_SIZE=$((SIMULATOR_SIZE + DEVICE_SIZE))
+            fi
+        done < <(find "$HOME/Library/Developer/CoreSimulator/Devices" -maxdepth 1 -type d -name "*-*-*-*-*" 2>/dev/null)
+        
+        if [ $SIMULATOR_SIZE -gt 0 ]; then
+            SIMULATOR_SIZE=$((SIMULATOR_SIZE * 1024))
+            if [ "$DRY_RUN" = true ]; then
+                echo -e "${YELLOW}[DRY RUN]${NC} Would delete: iOSシミュレータ ($(human_size $SIMULATOR_SIZE))"
+                echo -e "  ${BLUE}ℹ️  シミュレータは削除しても安全です。必要な時にXcodeから再作成できます${NC}"
+                log_operation "[DRY RUN] Would delete iOS Simulators: $(human_size $SIMULATOR_SIZE)"
+            else
+                echo -e "${RED}Deleting:${NC} iOSシミュレータ ($(human_size $SIMULATOR_SIZE))"
+                echo -e "  ${BLUE}ℹ️  心配無用！必要になったらXcodeから再作成できます${NC}"
+                xcrun simctl delete all 2>/dev/null || rm -rf "$HOME/Library/Developer/CoreSimulator/Devices/"*
+                log_operation "Deleted iOS Simulators: $(human_size $SIMULATOR_SIZE)"
+            fi
+            TOTAL_FREED=$((TOTAL_FREED + SIMULATOR_SIZE))
+        fi
+    fi
+    
+    # Archives (古いアプリアーカイブ)
+    if [ -d "$HOME/Library/Developer/Xcode/Archives" ]; then
+        # 60日以上前のアーカイブを削除
+        while IFS= read -r -d '' archive; do
+            SIZE=$(du -sk "$archive" 2>/dev/null | cut -f1)
+            SIZE=$((SIZE * 1024))
+            remove_item "$archive" $SIZE "古いXcodeアーカイブ: $(basename "$archive")"
+            TOTAL_FREED=$((TOTAL_FREED + SIZE))
+        done < <(find "$HOME/Library/Developer/Xcode/Archives" -name "*.xcarchive" -atime +60 -print0 2>/dev/null)
+    fi
+fi
+
+# 5. 空のプロジェクトディレクトリ
+echo -e "\n${GREEN}5. 空のプロジェクトディレクトリ${NC}"
 for dir in "${SEARCH_DIRS[@]}"; do
     while IFS= read -r -d '' empty_dir; do
         remove_item "$empty_dir" 0 "空のディレクトリ: $empty_dir"

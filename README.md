@@ -95,6 +95,13 @@ ghostcleaner --config ~/.ghostcleanerrc
 - 📁 `node_modules` not touched for 90+ days
 - 🕳️ Empty directories (ghost towns)
 
+### NEW in v1.1.0: Xcode Ghosts 🍎👻
+- 📱 **iOS Simulators** - The biggest ghosts! (often 5GB+)
+  - ✅ **100% safe to delete** - Xcode recreates them when needed
+  - 💡 Just open Xcode → Window → Devices when you need a specific model
+- 🔨 **DerivedData** - Build caches that rebuild automatically
+- 📼 **Old Archives** - App archives older than 60 days
+
 ### Aggressive Mode 👻💀
 - 🗂️ Old versions of your projects (keeps only the freshest)
 - 👻 Ghost projects like:
@@ -131,6 +138,18 @@ ghost_patterns:
   - "*.bak"
 ```
 
+## FAQ: "But What About My Simulators?" 📱
+
+**Q: Is it really safe to delete iOS Simulators?**
+
+**A: YES! 100% safe!** Here's why:
+- Simulators are just virtual devices, not system files
+- Xcode recreates them instantly when needed
+- You probably don't need iPhone 8, X, 11, 12, 13, 14, 15, AND 16 simulators
+- Each simulator can be 1-2GB (that's a lot of ghosts!)
+
+**Example**: Bought a new iPhone 16 Pro? Just create that one simulator when you need it. Done! 
+
 ## Safety Features 🛡️
 
 - 🚨 Never deletes files with recent activity
@@ -138,6 +157,7 @@ ghost_patterns:
 - 📊 Detailed logging of all ghost busting activities
 - 👻 Always keeps the latest version (no accidental exorcisms)
 - 📝 Creates activity logs for recovery if needed
+- 📱 Simulator deletion is reversible (just recreate in Xcode)
 
 ## The Story Behind Ghostcleaner 📖
 
